@@ -12,25 +12,25 @@ CREATE TABLE employee (
   department_id INT,
 );  
 
--- View Employee Table
+-- 4. View Employee Table
 DESCRIBE employee;
 
--- 4. Create Department Table
+-- 5. Create Department Table
  CREATE TABLE department (
    department_id INT PRIMARY KEY,
    departmnet_name VARCHAR(20),
    FOREIGN KEY(#####) REFERENCES employee(employee_id) ON DELETE SET NULL;
 
--- View Department Table
+-- 6. View Department Table
 DESCRIBE department;
 
--- Set Foreign Key In Employee Table
+-- 7. Set Foreign Key In Employee Table
 ALTER TABLE employee
 ADD FOREIGN KEY(department_id)
 REFERENCES department(department_id)
 ON DELETE SET NULL;
 
--- Add Employees To Employee Table
+-- 8. Add Employees To Employee Table
 INSERT INTO employee (employee_id, first_name, last_name, department_id)
 VALUES
   (1, "Michael", "Scott", 101),
@@ -41,10 +41,10 @@ VALUES
   (6, "Toby", "Flenderson", 105),
   (7, "Darryl", "Philbin", 106);
 
--- View Data From Employee Table
+-- 9. View Data From Employee Table
 SELECT * FROM employee;
 
--- Add Departments To Department Table
+-- 10. Add Departments To Department Table
 INSERT INTO department (department_id, department_name)
 VALUES
   (101, "Management"),
@@ -54,22 +54,22 @@ VALUES
   (105, "Human Resources"),
   (106, "Warehouse");
 
--- View Data From Department Table
+-- 11. View Data From Department Table
 SELECT * FROM department;
 
--- View Sales Information From Department Table
+-- 12. View Sales Information From Department Table
 SELECT department_name
 FROM department
 WHERE department_id = 102;
 
--- Update Row
+-- 13. Update Row
 UPDATE employee
 SET department_id = 102
 WHERE employee_id = 4;
 
--- Delete Row
+-- 14. Delete Row
 DELETE FROM employee
 WHERE employee_id = 3;
 
--- Ensure Above Changes To Employee Table Worked
+-- 15. Ensure Above Changes To Employee Table Worked
 SELECT * FROM employee;
